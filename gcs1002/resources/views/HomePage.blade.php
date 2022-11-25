@@ -10,17 +10,17 @@
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
     <!-- CSS here -->
-    <link rel="stylesheet" href="..\gcs1002\public\assets\css\bootstrap.min.css">
-    <link rel="stylesheet" href="..\gcs1002\public\assets\css\owl.carousel.min.css">
-    <link rel="stylesheet" href="..\gcs1002\public\assets\css\flaticon.css">
-    <link rel="stylesheet" href="..\gcs1002\public\assets\css\slicknav.css">
-    <link rel="stylesheet" href="..\gcs1002\public\assets\css\animate.min.css">
-    <link rel="stylesheet" href="..\gcs1002\public\assets\css\magnific-popup.css">
-    <link rel="stylesheet" href="..\gcs1002\public\assets\css\fontawesome-all.min.css">
-    <link rel="stylesheet" href="..\gcs1002\public\assets\css\themify-icons.css">
-    <link rel="stylesheet" href="..\gcs1002\public\assets\css\slick.css">
-    <link rel="stylesheet" href="..\gcs1002\public\assets\css\nice-select.css">
-    <link rel="stylesheet" href="..\gcs1002\public\assets\css\style.css">
+    <link rel="stylesheet" href="..\public\assets\css\bootstrap.min.css">
+    <link rel="stylesheet" href="..\public\assets\css\owl.carousel.min.css">
+    <link rel="stylesheet" href="..\public\assets\css\flaticon.css">
+    <link rel="stylesheet" href="..\public\assets\css\slicknav.css">
+    <link rel="stylesheet" href="..\public\assets\css\animate.min.css">
+    <link rel="stylesheet" href="..\public\assets\css\magnific-popup.css">
+    <link rel="stylesheet" href="..\public\assets\css\fontawesome-all.min.css">
+    <link rel="stylesheet" href="..\public\assets\css\themify-icons.css">
+    <link rel="stylesheet" href="..\public\assets\css\slick.css">
+    <link rel="stylesheet" href="..\public\assets\css\nice-select.css">
+    <link rel="stylesheet" href="..\public\assets\css\style.css">
 </head>
 
 <body>

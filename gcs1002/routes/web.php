@@ -21,11 +21,18 @@ Route::get('/', function () {
 route::get('product-list', [ProductsController::class, 'index2']);
 
 route::get('Shopping', [ProductsController::class, 'shopping']);
-route::get('HomePage', [ProductsController::class, 'HomePage']);
-route::get('ShoppingPage', [ProductsController::class, 'ShoppingPage']);
+
 route::get('product-add', [ProductsController::class, 'add2']);
 route::post('product-save', [ProductsController::class, 'save']);
 
 route::get('product-edit/{id}', [ProductsController::class, 'edit']);
 route::post('product-update', [ProductsController::class, 'update']);
 route::get('product-delete/{id}', [ProductsController::class, 'delete']);
+
+
+route::get('HomePage', [ProductsController::class, 'HomePage']);
+route::get('ShoppingPage', [ProductsController::class, 'ShoppingPage']);
+route::get('LoginPage', [ProductsController::class, 'LoginPage']);
+route::get('RegisterPage', [ProductsController::class, 'RegisterPage']);
+route::get('AddPage', [ProductsController::class, 'AddPage']);
+route::get('EditPage/{id}', [ProductsController::class, 'edit2']);

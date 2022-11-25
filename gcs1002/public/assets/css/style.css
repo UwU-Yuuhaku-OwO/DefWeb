@@ -9971,7 +9971,7 @@ input:focus {
 
 .p_star {
     display: inline-block;
-    position: relative
+    position: relative;
 }
 
 .p_star input {
@@ -10438,6 +10438,9 @@ input:focus {
     background-image: -webkit-linear-gradient(90deg, #B08EAD 0%, #4B3049 64%, #B08EAD 100%);
     background-image: linear-gradient(90deg, #B08EAD 0%, #4B3049 64%, #B08EAD 100%);
     background-size: 200% auto
+    width: 100%;
+    max-width: 350px;
+    margin: auto;
 }
 
 .login_part .login_part_text h2 {
@@ -11552,3 +11555,5 @@ input:focus {
                     font-weight: lighter;
                     text-decoration: line-through;
                 }
+
+
