@@ -1,5 +1,6 @@
 <!doctype html>
 <html class="no-js" lang="zxx">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -44,30 +45,30 @@
                     <div class="menu-wrapper">
                         <!-- Logo -->
                         <div class="logo">
-                            <a href="index.html"><img src="../public/assets/img/logo/logo.png" alt=""></a>
+                            <a href="HomePage"><img src="../public/assets/img/logo/logo.png" alt=""></a>
                         </div>
                         <!-- Main-menu -->
                         <div class="main-menu d-none d-lg-block">
                             <nav>
                                 <ul id="navigation">
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><a href="shop.html">shop</a></li>
+                                    <li><a href="HomePage">Home</a></li>
+                                    <li><a href="ShoppingPage">shop</a></li>
                                     <li><a href="about.html">about</a></li>
                                     <li class="hot"><a href="#">Latest</a>
                                         <ul class="submenu">
-                                            <li><a href="shop.html"> Product list</a></li>
-                                            <li><a href="product_details.html"> Product Details</a></li>
+                                            <li><a href="AddPage"> Product list</a></li>
+                                            <li><a href="{{ url('product-list') }}"> Product Details</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="blog.html">Blog</a>
+                                    <li><a href="ShoppingPage">Blog</a>
                                         <ul class="submenu">
-                                            <li><a href="blog.html">Blog</a></li>
-                                            <li><a href="blog-details.html">Blog Details</a></li>
+                                            <li><a href="AddPage">Blog</a></li>
+                                            <li><a href="EditPage">Blog Details</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="#">Pages</a>
                                         <ul class="submenu">
-                                            <li><a href="login.html">Login</a></li>
+                                            <li><a href="LoginPage">Login</a></li>
                                             <li><a href="cart.html">Cart</a></li>
                                             <li><a href="elements.html">Element</a></li>
                                             <li><a href="confirmation.html">Confirmation</a></li>
@@ -86,7 +87,16 @@
                                         <span class="flaticon-search"></span>
                                     </div>
                                 </li>
-                                <li> <a href="login.html"><span class="flaticon-user"></span></a></li>
+
+                                @if (Session::has('username'))
+                                <li>Hello {{ Session::get('username') }}</li>
+                                <br>
+                                <li></li>
+                                <li><a class="text-primary" href="{{route('logout')}}">Logout</a></li>
+                                @else
+                                <li> <a href="LoginPage"><span class="flaticon-user"></span></a></li>
+                                @endif
+
                                 <li><a href="cart.html"><span class="flaticon-shopping-cart"></span></a> </li>
                             </ul>
                         </div>
@@ -110,17 +120,22 @@
                         <div class="row justify-content-between align-items-center">
                             <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8">
                                 <div class="hero__caption">
-                                    <h1 data-animation="fadeInLeft" data-delay=".4s" data-duration="2000ms">Select Your New Perfect Style</h1>
-                                    <p data-animation="fadeInLeft" data-delay=".7s" data-duration="2000ms">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat is aute irure.</p>
+                                    <h1 data-animation="fadeInLeft" data-delay=".4s" data-duration="2000ms">Select Your
+                                        New Perfect Style</h1>
+                                    <p data-animation="fadeInLeft" data-delay=".7s" data-duration="2000ms">Ut enim ad
+                                        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                                        commodo consequat is aute irure.</p>
                                     <!-- Hero-btn -->
-                                    <div class="hero__btn" data-animation="fadeInLeft" data-delay=".8s" data-duration="2000ms">
-                                        <a href="industries.html" class="btn hero-btn">Shop Now</a>
+                                    <div class="hero__btn" data-animation="fadeInLeft" data-delay=".8s"
+                                        data-duration="2000ms">
+                                        <a href="ShoppingPage" class="btn hero-btn">Shop Now</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 d-none d-sm-block">
                                 <div class="hero__img" data-animation="bounceIn" data-delay=".4s">
-                                    <img src="..\public\assets\ProductImg\samsung-S22-ULTRA-SYNERGY_A99-a_700x.jpg" alt="" class=" heartbeat">
+                                    <img src="..\public\assets\ProductImg\samsung-S22-ULTRA-SYNERGY_A99-a_700x.jpg"
+                                        alt="" class=" heartbeat">
                                 </div>
                             </div>
                         </div>
@@ -132,17 +147,22 @@
                         <div class="row justify-content-between align-items-center">
                             <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8">
                                 <div class="hero__caption">
-                                    <h1 data-animation="fadeInLeft" data-delay=".4s" data-duration="2000ms">Select Your New Perfect Style</h1>
-                                    <p data-animation="fadeInLeft" data-delay=".7s" data-duration="2000ms">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat is aute irure.</p>
+                                    <h1 data-animation="fadeInLeft" data-delay=".4s" data-duration="2000ms">Select
+                                        Your New Perfect Style</h1>
+                                    <p data-animation="fadeInLeft" data-delay=".7s" data-duration="2000ms">Ut enim ad
+                                        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                                        commodo consequat is aute irure.</p>
                                     <!-- Hero-btn -->
-                                    <div class="hero__btn" data-animation="fadeInLeft" data-delay=".8s" data-duration="2000ms">
+                                    <div class="hero__btn" data-animation="fadeInLeft" data-delay=".8s"
+                                        data-duration="2000ms">
                                         <a href="industries.html" class="btn hero-btn">Shop Now</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 d-none d-sm-block">
                                 <div class="hero__img" data-animation="bounceIn" data-delay=".4s">
-                                    <img src="..\public\assets\ProductImg\iPHONE-12-PRO-Ziricote-a_700x.jpg" alt="" class=" heartbeat">
+                                    <img src="..\public\assets\ProductImg\iPHONE-12-PRO-Ziricote-a_700x.jpg" alt=""
+                                        class=" heartbeat">
                                 </div>
                             </div>
                         </div>
@@ -188,7 +208,8 @@
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                         <div class="single-new-pro mb-30 text-center">
                             <div class="product-img">
-                                <img src="..\public\assets\ProductImg\xiaomi-REDMI-NOTE-11-PRO-_-11-PRO-5G-SYNERGY_A96-a_700x.jpg" alt="">
+                                <img src="..\public\assets\ProductImg\xiaomi-REDMI-NOTE-11-PRO-_-11-PRO-5G-SYNERGY_A96-a_700x.jpg"
+                                    alt="">
                             </div>
                             <div class="product-caption">
                                 <h3><a href="product_details.html">Xioami Readmi Note 11 Pro</a></h3>
@@ -206,24 +227,31 @@
                 <div class="row">
                     <div class="col-xl-6 col-lg-4 col-md-6 col-sm-6">
                         <div class="single-gallery mb-30">
-                            <div class="gallery-img big-img" style="background-image: url(../public/assets/ProductImg/phonecase.png);"></div>
+                            <div class="gallery-img big-img"
+                                style="background-image: url(../public/assets/ProductImg/phonecase.png);"></div>
                         </div>
                     </div>
                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
                         <div class="single-gallery mb-30">
-                            <div class="gallery-img big-img" style="background-image: url(../public/assets/ProductImg/B7178CE0-4231-4E84-97BA-5BCE0523A806_1400x.jpg);"></div>
+                            <div class="gallery-img big-img"
+                                style="background-image: url(../public/assets/ProductImg/B7178CE0-4231-4E84-97BA-5BCE0523A806_1400x.jpg);">
+                            </div>
                         </div>
                     </div>
                     <div class="col-xl-3 col-lg-4 col-md-12">
                         <div class="row">
                             <div class="col-xl-12 col-lg-12 col-md-6 col-sm-6">
                                 <div class="single-gallery mb-30">
-                                    <div class="gallery-img small-img" style="background-image: url(../public/assets/ProductImg/45e97-grovemade-iphone8-case-walnut-a1_3_preview.jpg);"></div>
+                                    <div class="gallery-img small-img"
+                                        style="background-image: url(../public/assets/ProductImg/45e97-grovemade-iphone8-case-walnut-a1_3_preview.jpg);">
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-xl-12 col-lg-12  col-md-6 col-sm-6">
                                 <div class="single-gallery mb-30">
-                                    <div class="gallery-img small-img" style="background-image: url(../public/assets/ProductImg/Best-iPhone-SE-2020-Wooden-Cases-800x450.jpg);"></div>
+                                    <div class="gallery-img small-img"
+                                        style="background-image: url(../public/assets/ProductImg/Best-iPhone-SE-2020-Wooden-Cases-800x450.jpg);">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -241,7 +269,8 @@
                     <div class="col-xl-7 col-lg-8 col-md-10">
                         <div class="section-tittle mb-70 text-center">
                             <h2>Popular Items</h2>
-                            {{-- <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p> --}}
+                            {{-- <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                                magna aliqua. Quis ipsum suspendisse ultrices gravida.</p> --}}
                         </div>
                     </div>
                 </div>
@@ -304,7 +333,7 @@
                 <!-- Button -->
                 <div class="row justify-content-center">
                     <div class="room-btn pt-70">
-                        <a href="{{url('product-list')}}" class="btn view-btn1">View More Products</a>
+                        <a href="{{ url('product-list') }}" class="btn view-btn1">View More Products</a>
                     </div>
                 </div>
             </div>
@@ -354,12 +383,14 @@
                             <div class="single-footer-caption mb-30">
                                 <!-- logo -->
                                 <div class="footer-logo">
-                                    <a href="{{ url('Shopping2') }}"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
+                                    <a href="{{ url('Shopping2') }}"><img src="assets/img/logo/logo2_footer.png"
+                                            alt=""></a>
                                 </div>
                                 <div class="footer-tittle">
                                     <div class="footer-pera">
-                                        <p>Asorem ipsum adipolor sdit amet, consectetur adipisicing elitcf sed do eiusmod tem.</p>
-                                </div>
+                                        <p>Asorem ipsum adipolor sdit amet, consectetur adipisicing elitcf sed do
+                                            eiusmod tem.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -372,7 +403,7 @@
                                     <li><a href="#">About</a></li>
                                     <li><a href="#"> Offers & Discounts</a></li>
                                     <li><a href="#"> Get Coupon</a></li>
-                                    <li><a href="#">  Contact Us</a></li>
+                                    <li><a href="#"> Contact Us</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -475,4 +506,5 @@
     <script src="./assets/js/main.js"></script>
 
 </body>
+
 </html>

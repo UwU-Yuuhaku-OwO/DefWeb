@@ -35,16 +35,6 @@
             <input type="text" class="form-control" name="product" id="product" placeholder="product" value="{{ $data->product }}" />
             <input type="text" class="form-control" name="price" id="price" placeholder="prices" value="{{ $data->price }}"/>
             <input type="text" class="form-control" name="category" id="price" placeholder="prices" value="{{ $data->categoryID }}"/>
-
-            {{-- <select name="categoryID" class="form-control">
-                @foreach ( $data as $categories )
-                <option value="{{ $categories->id }}">
-                {{ $categories->cat_name }}
-                </option>
-                @endforeach
-            </select> --}}
-
-
             <input type="file" class="form-control" name="img" id="img" placeholder="Picture of product (PNG, JEPG)" value="{{ $data->img }}"/>
 
 

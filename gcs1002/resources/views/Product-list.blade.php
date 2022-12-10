@@ -41,7 +41,7 @@
                             <td>{{ $product->cat_name }}</td>
 
                             <td>
-                                <a href="{{ 'product-edit/'. $product->id }}" class="btn btn-primary" > Edit </a> |
+                                <a href="{{ route('update_product', $product->id) }}" class="btn btn-primary" > Edit </a> |
                                 <a href="{{ 'product-delete/'. $product->id }}" class="btn btn-danger" > Delete </a>
                             </td>
                         </tr>

@@ -15,8 +15,8 @@
 
         <a href="#" class="logo">Woodcase<span>.</span></a>
         <nav class="navbar">
-            <a href="#home">home</a>
-            <a href="#products">products</a>
+            <a href="HomePage">home</a>
+            <a href="Product-add">products</a>
             <a href="#contact">contact</a>
         </nav>
 

@@ -31,14 +31,14 @@
                     <div class="menu-wrapper">
                         <!-- Logo -->
                         <div class="logo">
-                            <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                            <a href="HomePage"><img src="assets/img/logo/logo.png" alt=""></a>
                         </div>
                         <!-- Main-menu -->
                         <div class="main-menu d-none d-lg-block">
                             <nav>
                                 <ul id="navigation">
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><a href="shop.html">shop</a></li>
+                                    <li><a href="HomePage">Home</a></li>
+                                    <li><a href="ShoppingPage">shop</a></li>
                                     <li><a href="about.html">about</a></li>
                                     <li class="hot"><a href="#">Latest</a>
                                         <ul class="submenu">
@@ -88,6 +88,9 @@
         <!-- Header End -->
     </header>
     <main>
+        @if (Session::has('status'))
+            <div class="danger">{{ Session::get('status') }}</div>
+        @endif
         <!-- Hero Area Start-->
         <div class="slider-area ">
             <div class="single-slider slider-height2 d-flex align-items-center">
@@ -122,9 +125,10 @@
                             <div class="login_part_form_iner">
                                 <h3>Welcome Back ! <br>
                                     Please Sign in now</h3>
-                                <form class="row contact_form" action="#" method="post" novalidate="novalidate">
+                                <form class="row contact_form" action="{{route('login-user')}}" method="post" novalidate="novalidate">
+                                    @csrf
                                     <div class="col-md-12 form-group p_star">
-                                        <input type="text" class="form-control" id="name" name="name" value=""
+                                        <input type="text" class="form-control" id="username" name="username" value=""
                                             placeholder="Username">
                                     </div>
                                     <div class="col-md-12 form-group p_star">
@@ -137,7 +141,7 @@
                                             <label for="f-option">Remember me</label>
                                         </div>
                                         <button type="submit" value="submit" class="btn_3">
-                                            log in
+                                            Log in
                                         </button>
                                         <a class="lost_pass" href="#">forget password?</a>
                                     </div>

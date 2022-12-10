@@ -43,6 +43,12 @@ class ProductsController extends Controller
         return view('HomePage', compact('data'));
     }
 
+    public function CatAddPage()
+    {
+        $data = Products::get();
+        return view('CatAddPage', compact('data'));
+    }
+
     public function LoginPage()
     {
         $data = Products::get();
@@ -84,6 +90,24 @@ class ProductsController extends Controller
 
         return redirect()->back()->with('success', 'Product added successfully');
     }
+    public function CatSave(Request $request)
+    {
+        $categories = new Category();
+        $categories->cat_name = $request->cat_name;
+
+        $categories->save();
+
+        return redirect()->back()->with('success', 'Product added successfully');
+    }
+
+    public function CatEdit($id)
+    {
+        $data = Category::where('id', '=', $id)->first();
+
+        return view('cat-edit', compact('data'));
+    }
+
+    
     public function edit($id)
     {
         $data = Products::where('id', '=', $id)->first();
@@ -92,9 +116,10 @@ class ProductsController extends Controller
     }
     public function edit2($id)
     {
-        $data = Products::where('id', '=', $id)->first();
+        $data = Products::where('Id', '=', $id)->first();
 
-        return view('EditPage', compact('data'));
+        $categories = Category::get();
+        return view('EditPage', compact('data', 'categories'));
     }
 
     public function update(Request $request)

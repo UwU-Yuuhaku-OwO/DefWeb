@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Category;
+use App\Models\Category;
 
 class CategoryController extends Controller
 {
     public function index()
     {
-        $data = category::get();
+        $data = Category::get();
         return view('category-list', compact('data'));
     }
 }

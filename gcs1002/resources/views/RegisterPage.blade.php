@@ -31,14 +31,14 @@
                     <div class="menu-wrapper">
                         <!-- Logo -->
                         <div class="logo">
-                            <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                            <a href="HomePage"><img src="assets/img/logo/logo.png" alt=""></a>
                         </div>
                         <!-- Main-menu -->
                         <div class="main-menu d-none d-lg-block">
                             <nav>
                                 <ul id="navigation">
                                     <li><a href="index.html">Home</a></li>
-                                    <li><a href="shop.html">shop</a></li>
+                                    <li><a href="ShoppingPage">shop</a></li>
                                     <li><a href="about.html">about</a></li>
                                     <li class="hot"><a href="#">Latest</a>
                                         <ul class="submenu">
@@ -112,25 +112,41 @@
                             <div class="login_part_form_iner">
                                 <h3>Welcome New Member ! <br>
                                         Sign up now</h3>
-                                <form class="row contact_form" action="#" method="post" novalidate="novalidate">
+                                <form class="row contact_form" action="{{route('register-user')}}" method="post" novalidate="novalidate">
+                                    @if(Session::has('success'))
+
+                                    <div class="alert alert-success">{{Session::get('success')}}</div>
+
+                                    @endif
+                                    @if(Session::has('fail'))
+
+                                    <div class="alert alert-danger">{{Session::get('fail')}}</div>
+
+                                    @endif
+                                    @csrf
                                     <div class="col-md-12 form-group p_star">
                                         <input type="text" class="form-control" id="name" name="name" value=""
-                                            placeholder="Username">
+                                            placeholder="Username"
+                                            value="{{old('name')}}">
+                                            <span class="text-danger">@error('name') {{$message}}@enderror </span>
                                     </div>
 
                                     <div class="col-md-12 form-group p_star">
-                                        <input type="text" class="form-control" id="password" name="password" value=""
+                                        <input type="text" class="form-control" id="username" name="username" value=""
                                             placeholder="Full Name">
+                                        {{-- <span class="text-danger">@error('username') {{$message}}@enderror </span> --}}
                                     </div>
 
                                     <div class="col-md-12 form-group p_star">
-                                        <input type="text" class="form-control" id="password" name="password" value=""
+                                        <input type="text" class="form-control" id="email" name="email" value=""
                                             placeholder="Gmail">
+                                            {{-- <span class="text-danger">@error('email') {{$message}}@enderror </span> --}}
                                     </div>
 
                                     <div class="col-md-12 form-group p_star">
                                         <input type="password" class="form-control" id="password" name="password" value=""
-                                            placeholder="Password">
+                                            placeholder="Password" >
+                                            <span class="text-danger">@error('password') {{$message}}@enderror </span>
                                     </div>
 
                                     <div class="col-md-12 form-group">

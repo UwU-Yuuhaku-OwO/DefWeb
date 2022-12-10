@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="zxx">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -10,18 +11,19 @@
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
     <!-- CSS here -->
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-        <link rel="stylesheet" href="assets/css/flaticon.css">
-        <link rel="stylesheet" href="assets/css/slicknav.css">
-        <link rel="stylesheet" href="assets/css/animate.min.css">
-        <link rel="stylesheet" href="assets/css/magnific-popup.css">
-        <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
-        <link rel="stylesheet" href="assets/css/themify-icons.css">
-        <link rel="stylesheet" href="assets/css/slick.css">
-        <link rel="stylesheet" href="assets/css/nice-select.css">
-        <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="..\public\assets\css\bootstrap.min.css">
+    <link rel="stylesheet" href="..\public\assets\css\owl.carousel.min.css">
+    <link rel="stylesheet" href="..\public\assets\css\flaticon.css">
+    <link rel="stylesheet" href="..\public\assets\css\slicknav.css">
+    <link rel="stylesheet" href="..\public\assets\css\animate.min.css">
+    <link rel="stylesheet" href="..\public\assets\css\magnific-popup.css">
+    <link rel="stylesheet" href="..\public\assets\css\fontawesome-all.min.css">
+    <link rel="stylesheet" href="..\public\assets\css\themify-icons.css">
+    <link rel="stylesheet" href="..\public\assets\css\slick.css">
+    <link rel="stylesheet" href="..\public\assets\css\nice-select.css">
+    <link rel="stylesheet" href="..\public\assets\css\style.css">
 </head>
+
 <body>
     <header>
         <!-- Header Start -->
@@ -69,9 +71,7 @@
                         <div class="header-right">
                             <ul>
                                 <li>
-                                    {{-- <div class="nav-search search-switch">
-                                        <span class="flaticon-search"></span>
-                                    </div> --}}
+
                                 </li>
                                 <li> <a href="login.html"><span class="flaticon-user"></span></a></li>
                                 <li><a href="cart.html"><span class="flaticon-shopping-cart"></span></a> </li>
@@ -95,7 +95,7 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="hero-cap text-center">
-                                <h2>Add Product</h2>
+                                <h2>Edit Product</h2>
                             </div>
                         </div>
                     </div>
@@ -111,31 +111,33 @@
                         <div class="login_part_form">
                             <div class="login_part_form_iner">
                                 {{-- <h3>Welcome New Member ! <br>
-                                        Sign up now</h3> --}}
-                                <form class="row contact_form" action="{{ url('product-save') }}" method="post" novalidate="novalidate">
+                                    Sign up now</h3> --}}
+                                <form class="row contact_form" action="{{ url('product-save') }}" method="post"
+                                    novalidate="novalidate">
                                     @csrf
                                     <div class="col-md-12 form-group p_star">
-                                        <input type="text" class="form-control" id="product" name="product" value=""
-                                            placeholder="Products Name">
+                                        <input type="text" class="form-control" id="product" name="product"
+                                            value="{{$data->name}}" placeholder="Products Name">
                                     </div>
 
                                     <div class="col-md-12 form-group p_star">
-                                        <input type="text" class="form-control" id="price" name="price" value=""
-                                            placeholder="Price">
+                                        <input type="text" class="form-control" id="price" name="price"
+                                            value="{{$data->price}}" placeholder="Price">
                                     </div>
 
                                     <div class="col-md-12 form-group p_star">
                                         <select name="categoryID" class="form-control">
-                                            @foreach ( $data as $categories )
-                                            <option value="{{ $categories->id }}">
-                                            {{ $categories->cat_name }}
+                                            @foreach ( $categories as $category)
+                                            <option value="{{ $category->ID }}">
+                                                {{ $category->cat_name }}
                                             </option>
                                             @endforeach
                                         </select>
                                     </div>
 
                                     <div class="col-md-12 form-group p_star">
-                                        <input type="file" class="form-control" id="img" name="img" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
+                                        <input type="file" class="form-control" id="img" name="img"
+                                            onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
                                     </div>
 
 
@@ -146,7 +148,7 @@
                                             <label for="f-option">Remember me</label>
                                         </div> --}}
                                         <button type="submit" value="submit" class="btn_3">
-                                            Add
+                                            Update
                                         </button>
                                         {{-- <a class="lost_pass" href="#">forget password?</a> --}}
                                     </div>
@@ -182,8 +184,9 @@
                                 </div>
                                 <div class="footer-tittle">
                                     <div class="footer-pera">
-                                        <p>Asorem ipsum adipolor sdit amet, consectetur adipisicing elitcf sed do eiusmod tem.</p>
-                                </div>
+                                        <p>Asorem ipsum adipolor sdit amet, consectetur adipisicing elitcf sed do
+                                            eiusmod tem.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -196,7 +199,7 @@
                                     <li><a href="#">About</a></li>
                                     <li><a href="#"> Offers & Discounts</a></li>
                                     <li><a href="#"> Get Coupon</a></li>
-                                    <li><a href="#">  Contact Us</a></li>
+                                    <li><a href="#"> Contact Us</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -229,8 +232,7 @@
                     </div>
                 </div>
                 <!-- Footer bottom -->
-                <
-        <!-- Footer End-->
+                < <!-- Footer End-->
     </footer> --}}
 
 
