@@ -15,19 +15,6 @@ class ProductsController extends Controller
         return view('product-list', compact('data')); //view
     }
 
-    public function index2()
-    {
-        $data = Products::select('products.*', 'categories.cat_name')
-            ->join('categories', 'products.categoryID', 'categories.id')
-            ->get();
-        return view('Product-list', compact('data'));
-    }
-
-    public function shopping()
-    {
-        $data = Products::get();
-        return view('Shopping', compact('data'));
-    }
 
     public function ShoppingPage()
     {
@@ -43,16 +30,15 @@ class ProductsController extends Controller
         return view('HomePage', compact('data'));
     }
 
-    public function CatAddPage()
-    {
-        $data = Products::get();
-        return view('CatAddPage', compact('data'));
-    }
-
     public function LoginPage()
     {
         $data = Products::get();
         return view('LoginPage', compact('data'));
+    }
+    public function AdLogPage()
+    {
+        $data = Products::get();
+        return view('AdLogPage', compact('data'));
     }
     public function RegisterPage()
     {
@@ -61,21 +47,8 @@ class ProductsController extends Controller
     }
     public function AddPage()
     {
-        $data = Products::get();
         $data = Category::get();
         return view('AddPage', compact('data'));
-    }
-
-
-    public function add()
-    {
-
-        return view('product-add');
-    }
-    public function add2()
-    {
-        $data = Category::get();
-        return view('product-add', compact('data'));
     }
 
 
@@ -90,24 +63,6 @@ class ProductsController extends Controller
 
         return redirect()->back()->with('success', 'Product added successfully');
     }
-    public function CatSave(Request $request)
-    {
-        $categories = new Category();
-        $categories->cat_name = $request->cat_name;
-
-        $categories->save();
-
-        return redirect()->back()->with('success', 'Product added successfully');
-    }
-
-    public function CatEdit($id)
-    {
-        $data = Category::where('id', '=', $id)->first();
-
-        return view('cat-edit', compact('data'));
-    }
-
-    
     public function edit($id)
     {
         $data = Products::where('id', '=', $id)->first();
@@ -116,7 +71,7 @@ class ProductsController extends Controller
     }
     public function edit2($id)
     {
-        $data = Products::where('Id', '=', $id)->first();
+        $data = Products::where('id', '=', $id)->first();
 
         $categories = Category::get();
         return view('EditPage', compact('data', 'categories'));
@@ -126,9 +81,11 @@ class ProductsController extends Controller
     {
         $id = $request->id;
         Products::where('id', '=', $id)->update([
+
             'product' => $request->product,
             'price' => $request->price,
-            'img' => $request->img
+            'img' => $request->img_pass,
+            'categoryID' => $request->categoryID,
         ]);
         return redirect()->back()->with('success', 'Product updated successfully');
     }

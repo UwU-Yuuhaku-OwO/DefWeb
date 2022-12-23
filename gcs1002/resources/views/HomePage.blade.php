@@ -11,20 +11,23 @@
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
     <!-- CSS here -->
-    <link rel="stylesheet" href="..\public\assets\css\bootstrap.min.css">
-    <link rel="stylesheet" href="..\public\assets\css\owl.carousel.min.css">
-    <link rel="stylesheet" href="..\public\assets\css\flaticon.css">
-    <link rel="stylesheet" href="..\public\assets\css\slicknav.css">
-    <link rel="stylesheet" href="..\public\assets\css\animate.min.css">
-    <link rel="stylesheet" href="..\public\assets\css\magnific-popup.css">
-    <link rel="stylesheet" href="..\public\assets\css\fontawesome-all.min.css">
-    <link rel="stylesheet" href="..\public\assets\css\themify-icons.css">
-    <link rel="stylesheet" href="..\public\assets\css\slick.css">
-    <link rel="stylesheet" href="..\public\assets\css\nice-select.css">
-    <link rel="stylesheet" href="..\public\assets\css\style.css">
+    <link rel="stylesheet" href="../public/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../public/assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../public/assets/css/flaticon.css">
+    <link rel="stylesheet" href="../public/assets/css/slicknav.css">
+    <link rel="stylesheet" href="../public/assets/css/animate.min.css">
+    <link rel="stylesheet" href="../public/assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="../public/assets/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../public/assets/css/themify-icons.css">
+    <link rel="stylesheet" href="../public/assets/css/slick.css">
+    <link rel="stylesheet" href="../public/assets/css/nice-select.css">
+    <link rel="stylesheet" href="../public/assets/css/style.css">
 </head>
 
 <body>
+    <?php use App\Http\Controllers\CustomAuthController;
+    $user= CustomAuthController::check_login_user(Session('user_id'));
+?>
     <!--? Preloader Start -->
     <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
@@ -68,11 +71,19 @@
                                     </li>
                                     <li><a href="#">Pages</a>
                                         <ul class="submenu">
-                                            <li><a href="LoginPage">Login</a></li>
+                                            @if (Session('user_id')===null)
+                                                <li><a href="LoginPage">User</a></li>
+                                                <li><a href="AdLogPage">Admin</a></li>
+                                            @endif
                                             <li><a href="cart.html">Cart</a></li>
                                             <li><a href="elements.html">Element</a></li>
                                             <li><a href="confirmation.html">Confirmation</a></li>
                                             <li><a href="checkout.html">Product Checkout</a></li>
+                                            @if (Session('user_id')!==null)
+                                                 <li><a href="{{route('user_page',session('user_id'))}}">User Information</a></li>
+                                            {{-- @endif --}}
+                                            @endif
+
                                         </ul>
                                     </li>
                                     <li><a href="contact.html">Contact</a></li>
@@ -88,16 +99,17 @@
                                     </div>
                                 </li>
 
-                                @if (Session::has('username'))
-                                <li>Hello {{ Session::get('username') }}</li>
+                                @if (Session('user_id')!==null)
+                                    <li>Hello  <span> {{ Session::get('username') }} </span>  </li>
                                 <br>
                                 <li></li>
-                                <li><a class="text-primary" href="{{route('logout')}}">Logout</a></li>
+                                <li><a class="text-primary" href="{{route('logout')}}">&nbsp; Logout</a></li>
                                 @else
                                 <li> <a href="LoginPage"><span class="flaticon-user"></span></a></li>
-                                @endif
+                                {{-- @endif --}}
 
                                 <li><a href="cart.html"><span class="flaticon-shopping-cart"></span></a> </li>
+                                @endif
                             </ul>
                         </div>
                     </div>
@@ -134,7 +146,7 @@
                             </div>
                             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 d-none d-sm-block">
                                 <div class="hero__img" data-animation="bounceIn" data-delay=".4s">
-                                    <img src="..\public\assets\ProductImg\samsung-S22-ULTRA-SYNERGY_A99-a_700x.jpg"
+                                    <img src="../public/assets/ProductImg/samsung-S22-ULTRA-SYNERGY_A99-a_700x.jpg"
                                         alt="" class=" heartbeat">
                                 </div>
                             </div>
@@ -161,7 +173,7 @@
                             </div>
                             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 d-none d-sm-block">
                                 <div class="hero__img" data-animation="bounceIn" data-delay=".4s">
-                                    <img src="..\public\assets\ProductImg\iPHONE-12-PRO-Ziricote-a_700x.jpg" alt=""
+                                    <img src="../public/assets/ProductImg/iPHONE-12-PRO-Ziricote-a_700x.jpg" alt=""
                                         class=" heartbeat">
                                 </div>
                             </div>
@@ -186,7 +198,7 @@
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                         <div class="single-new-pro mb-30 text-center">
                             <div class="product-img">
-                                <img src="..\public\assets\ProductImg\samsung-S22-ULTRA-SYNERGY_A99-a_700x.jpg" alt="">
+                                <img src="../public/assets/ProductImg/samsung-S22-ULTRA-SYNERGY_A99-a_700x.jpg" alt="">
                             </div>
                             <div class="product-caption">
                                 <h3><a href="product_details.html">Samsung S22 Ultra</a></h3>
@@ -197,7 +209,7 @@
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                         <div class="single-new-pro mb-30 text-center">
                             <div class="product-img">
-                                <img src="..\public\assets\ProductImg\iPHONE-13-PRO-Ziricote-a_700x.jpg" alt="">
+                                <img src="../public/assets/ProductImg/iPHONE-13-PRO-Ziricote-a_700x.jpg" alt="">
                             </div>
                             <div class="product-caption">
                                 <h3><a href="product_details.html">Iphone 13 Pro</a></h3>
@@ -208,7 +220,7 @@
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                         <div class="single-new-pro mb-30 text-center">
                             <div class="product-img">
-                                <img src="..\public\assets\ProductImg\xiaomi-REDMI-NOTE-11-PRO-_-11-PRO-5G-SYNERGY_A96-a_700x.jpg"
+                                <img src="../public/assets/ProductImg/xiaomi-REDMI-NOTE-11-PRO-_-11-PRO-5G-SYNERGY_A96-a_700x.jpg"
                                     alt="">
                             </div>
                             <div class="product-caption">
@@ -278,7 +290,7 @@
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                         <div class="single-popular-items mb-50 text-center">
                             <div class="popular-img">
-                                <img src="..\public\assets\ProductImg\samsung-S22-ULTRA-SYNERGY_A99-a_700x.jpg" alt="">
+                                <img src="../public/assets/ProductImg/samsung-S22-ULTRA-SYNERGY_A99-a_700x.jpg" alt="">
                                 <div class="img-cap">
                                     <span>Add to cart</span>
                                 </div>
@@ -295,7 +307,7 @@
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                         <div class="single-popular-items mb-50 text-center">
                             <div class="popular-img">
-                                <img src="..\public\assets\ProductImg\samsung-S22-ULTRA-SYNERGY_A99-a_700x.jpg" alt="">
+                                <img src="../public/assets/ProductImg/samsung-S22-ULTRA-SYNERGY_A99-a_700x.jpg" alt="">
                                 <div class="img-cap">
                                     <span>Add to cart</span>
                                 </div>
@@ -312,7 +324,7 @@
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                         <div class="single-popular-items mb-50 text-center">
                             <div class="popular-img">
-                                <img src="..\public\assets\ProductImg\samsung-S22-ULTRA-SYNERGY_A99-a_700x.jpg" alt="">
+                                <img src="../public/assets/ProductImg/samsung-S22-ULTRA-SYNERGY_A99-a_700x.jpg" alt="">
                                 <div class="img-cap">
                                     <span>Add to cart</span>
                                 </div>

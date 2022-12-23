@@ -24,6 +24,9 @@
 </head>
 
 <body>
+    <?php use App\Http\Controllers\CustomAuthController;
+    $user= CustomAuthController::check_login_user(Session('user_id'));
+?>
     <!--? Preloader Start -->
     <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
@@ -67,11 +70,17 @@
                                     </li>
                                     <li><a href="#">Pages</a>
                                         <ul class="submenu">
-                                            <li><a href="login.html">Login</a></li>
+                                            @if (Session('user_id')===null)
+                                            <li><a href="LoginPage">User</a></li>
+                                            <li><a href="AdLogPage">Admin</a></li>
+                                            @endif
                                             <li><a href="cart.html">Cart</a></li>
                                             <li><a href="elements.html">Element</a></li>
                                             <li><a href="confirmation.html">Confirmation</a></li>
                                             <li><a href="checkout.html">Product Checkout</a></li>
+                                            @if (Session('user_id')!==null)
+                                            <li><a href="{{route('user_page',session('user_id'))}}">User Information</a></li>
+                                            @endif
                                         </ul>
                                     </li>
                                     <li><a href="contact.html">Contact</a></li>
@@ -86,8 +95,17 @@
                                         <span class="flaticon-search"></span>
                                     </div>
                                 </li>
+
+                                @if (Session::has('username'))
+                                <li>Hello  {{ Session::get('username') }}  </li>
+                                <br>
+                                <li></li>
+                                <li><a class="text-primary" href="{{route('logout')}}">&nbsp; Logout</a></li>
+                                @else
                                 <li> <a href="{{url('LoginPage')}}"><span class="flaticon-user"></span></a></li>
                                 <li><a href="cart.html"><span class="flaticon-shopping-cart"></span></a> </li>
+                                @endif
+
                             </ul>
                         </div>
                     </div>
@@ -158,7 +176,7 @@
                                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                                     <div class="single-popular-items mb-50 text-center">
                                         <div class="popular-img">
-                                            <img src="assets\ProductImg\{{$product->img}}" alt="">
+                                            <img src="assets/ProductImg/{{$product->img}}" alt="">
                                             <div class="img-cap">
                                                 <span>Add to cart</span>
                                             </div>

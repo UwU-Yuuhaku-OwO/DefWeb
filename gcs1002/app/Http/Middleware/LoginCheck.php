@@ -15,8 +15,9 @@ class LoginCheck
      */
     public function handle(Request $request, Closure $next)
     {
-        if(!Session()->has('user_id')) {
-            return redirect('/login');
+        if(!Session()->has('user_id'))
+        {
+            return redirect('/AdLogPage');
         }
         return $next($request);
     }

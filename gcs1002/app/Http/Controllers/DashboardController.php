@@ -15,6 +15,9 @@ class DashboardController extends Controller
             ->get();
         return view("Admin.index", compact('data'));
     }
+    public function index2(){
+        return redirect('index2');
+    }
 
     public function delete($id) {
         Products::find($id)->delete();

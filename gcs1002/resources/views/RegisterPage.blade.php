@@ -114,26 +114,30 @@
                                         Sign up now</h3>
                                 <form class="row contact_form" action="{{route('register-user')}}" method="post" novalidate="novalidate">
                                     @if(Session::has('success'))
-
+                                    <script>
+                                        alert('success');
+                                    </script>
                                     <div class="alert alert-success">{{Session::get('success')}}</div>
 
                                     @endif
                                     @if(Session::has('fail'))
-
+                                    <script>
+                                        alert('failed');
+                                    </script>
                                     <div class="alert alert-danger">{{Session::get('fail')}}</div>
 
                                     @endif
                                     @csrf
                                     <div class="col-md-12 form-group p_star">
                                         <input type="text" class="form-control" id="name" name="name" value=""
-                                            placeholder="Username"
+                                            placeholder="Full Name"
                                             value="{{old('name')}}">
                                             <span class="text-danger">@error('name') {{$message}}@enderror </span>
                                     </div>
 
                                     <div class="col-md-12 form-group p_star">
                                         <input type="text" class="form-control" id="username" name="username" value=""
-                                            placeholder="Full Name">
+                                            placeholder="UserName">
                                         {{-- <span class="text-danger">@error('username') {{$message}}@enderror </span> --}}
                                     </div>
 
@@ -150,10 +154,6 @@
                                     </div>
 
                                     <div class="col-md-12 form-group">
-                                        {{-- <div class="creat_account d-flex align-items-center">
-                                            <input type="checkbox" id="f-option" name="selector">
-                                            <label for="f-option">Remember me</label>
-                                        </div> --}}
                                         <button type="submit" value="submit" class="btn_3">
                                             Register
                                         </button>

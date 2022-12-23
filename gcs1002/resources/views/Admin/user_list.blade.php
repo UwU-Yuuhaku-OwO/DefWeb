@@ -20,15 +20,11 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
-    <!-- Libraries Stylesheet -->
-    <link href="http://localhost/DefWeb/gcs1002/public/Admin/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="http://localhost/DefWeb/gcs1002/public/Admin/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="http://localhost/DefWeb/gcs1002/public/Admin/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
-    <link href="http://localhost/DefWeb/gcs1002/public/Admin/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/Admin/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/Admin/css/style.css">
+    <link rel="stylesheet" href="..assets/Admin/lib/owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="../assets/Admin/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css">
 </head>
 
 <body>
@@ -56,15 +52,12 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="{{ url('dashboard') }}" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="{{ url('dashboard') }}" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Product Manage</a>
                     <div class="nav-item dropdown">
-                        <a href="{{ url('admin/cat')}}" class="nav-link dropdown-toggle"><i class="fa fa-laptop me-2"></i>Category</a>
-                        {{-- <div class="dropdown-menu bg-transparent border-0">
-                            <a href="button.html" class="dropdown-item">Buttons</a>
-                            <a href="typography.html" class="dropdown-item">Typography</a>
-                            <a href="element.html" class="dropdown-item">Other Elements</a>
-                        </div> --}}
+                        <a href="{{ url('admin/cat')}}" class="nav-item nav-link inactive"> <i class="fa fa-laptop me-2"></i>Category</a>
+
                     </div>
+                    <a href="{{ url('admin/admin') }}" class="nav-item nav-link inactive"><i class="fa fa-th me-2"></i>Admin Manage</a>
                     <a href="{{ url('admin/user') }}" class="nav-item nav-link active"><i class="fa fa-th me-2"></i>User Manage</a>
 
                 </div>
@@ -95,7 +88,7 @@
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">
                                 <div class="d-flex align-items-center">
-                                    <img class="rounded-circle" src="ProductIm/291687523_189860590051806_4702903943460163817_n.jpg" alt="" style="width: 40px; height: 40px;">
+                                    <img class="rounded-circle" src="ProductImg/291687523_189860590051806_4702903943460163817_n.jpg" alt="" style="width: 40px; height: 40px;">
                                     <div class="ms-2">
                                         <h6 class="fw-normal mb-0">Jhon send you a message</h6>
                                         <small>15 minutes ago</small>
@@ -153,7 +146,7 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <img class="rounded-circle me-lg-2" src="http://localhost/DefWeb/gcs1002/public/assets/ProductImg/291687523_189860590051806_4702903943460163817_n.jpg" alt="" style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex">{{ Session::get('name') }}</span>
+                            <span class="d-none d-lg-inline-flex"></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">My Profile</a>
@@ -165,87 +158,46 @@
             </nav>
             <!-- Navbar End -->
 
-
-            <!-- Sale & Revenue Start -->
-            <div class="container-fluid pt-4 px-4">
-                <div class="row g-4">
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-line fa-3x text-primary"></i>
-                            <div class="ms-3">
-                                <p class="mb-2">Today Sale</p>
-                                <h6 class="mb-0">$1234</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-bar fa-3x text-primary"></i>
-                            <div class="ms-3">
-                                <p class="mb-2">Total Sale</p>
-                                <h6 class="mb-0">$1234</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-area fa-3x text-primary"></i>
-                            <div class="ms-3">
-                                <p class="mb-2">Today Revenue</p>
-                                <h6 class="mb-0">$1234</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-pie fa-3x text-primary"></i>
-                            <div class="ms-3">
-                                <p class="mb-2">Total Revenue</p>
-                                <h6 class="mb-0">$1234</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Sale & Revenue End -->
-
-
             <!-- Recent Sales Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-secondary text-center rounded p-4">
                     <div class="d-flex align-items-center justify-content-between mb-4">
                         <h6 class="mb-0">User List</h6>
+
+
                     </div>
                     <div class="table-responsive">
                         <table class="table text-start align-middle table-bordered table-hover mb-0">
                             <thead>
                                 <tr class="text-white">
-                                    <th scope="col">#</th>
+
                                     <th scope="col">Name</th>
                                     <th scope="col">Username</th>
                                     <th scope="col">Email</th>
-                                    <th scope="col">Role</th>
+                                    {{-- <th scope="col">Role</th> --}}
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
+
                                 @foreach ($data as $user)
                                 <tr>
-                                    <td>{{$user->id}}</td>
+
                                     <td>{{$user->name}}</td>
                                     <td>{{$user->username}}</td>
                                     <td>{{$user->email}}</td>
-                                    <td>{{ $user->role_name }}</td>
+
+
 
                                     <td>
-                                        <a href="{{ route('update_product', $user->id) }}" class="btn btn-primary">
-                                            Edit </a> |
+
                                         <a href="{{ route('delete_user', $user->id) }}" class="btn btn-danger"> Delete
                                         </a>
                                     </td>
                                 </tr>
 
                                 @endforeach
+
                             </tbody>
                         </table>
                     </div>
@@ -281,7 +233,7 @@
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="http://localhost/DefWeb/gcs1002/public/Admin/lib/chart/chart.min.js"></script>
     <script src="http://localhost/DefWeb/gcs1002/public/Admin/lib/easing/easing.min.js"></script>
     <script src="http://localhost/DefWeb/gcs1002/public/Admin/lib/waypoints/waypoints.min.js"></script>
@@ -292,7 +244,16 @@
     </script>
 
     <!-- Template Javascript -->
-    <script src="http://localhost/DefWeb/gcs1002/public/Admin/js/main.js"></script>
+    <script src="http://localhost/DefWeb/gcs1002/public/Admin/js/main.js"></script> --}}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../public/assets/Admin/lib/chart/chart.min.js">
+    <script src="../public/assets/Admin/lib/easing/easing.min.js"></script>
+    <script src="../public/assets/Admin/lib/waypoints/waypoints.min.js"></script>
+    <script src="../public/assets/Admin/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="../public/assets/Admin/lib/Admin/lib/tempusdominus/js/moment.min.js"></script>
+    <script src="../public/assets/Admin/lib/Admin/lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="../public/assets/Admin/lib/Admin/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 </body>
 
 </html>
